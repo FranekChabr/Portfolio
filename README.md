@@ -56,5 +56,5 @@ Gra wspiera dźwięki przy:
 - CSS3
 - Vanilla JavaScript
 
-👤 Autor
+
 Projekt stworzony przez Franciszka Chabrosa jako część portfolio frontendowego.
