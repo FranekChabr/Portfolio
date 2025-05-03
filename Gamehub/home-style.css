@@ -1,0 +1,280 @@
+/* reset podstawowy */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary-color: #FDB7EA;
+    --primary-hover: #F9A6DB;
+    --secondary-color: #B7B1F2;
+    --secondary-hover: #A69EE8;
+    --bg-color: #FBF3B9;
+    --text-color: #777777;
+    --light-text: #FBF3B9;
+    --border-radius: 15px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --font-primary: 'Quicksand', 'Varela Round', 'Comic Sans MS', sans-serif;
+  }
+  
+  /* czcionka */
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+  
+  /* ogolny wyglad strony */
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 20px;
+    max-width: 800px;
+  }
+  
+  .main-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 500;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .game-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    min-height: 320px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .game-card:not(.coming-soon):hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .memo-game::before {
+    background-color: var(--primary-color);
+  }
+  
+  .hangman-game::before {
+    background-color: var(--secondary-color);
+  }
+  
+  .game-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .memo-game .game-icon {
+    color: var(--primary-color);
+  }
+  
+  .hangman-game .game-icon {
+    color: var(--secondary-color);
+  }
+  
+  .game-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .game-card p {
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  .play-button {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .memo-game:hover .play-button {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+  }
+  
+  /* etykieta wkrotce */
+  .coming-soon {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .coming-soon-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transform: rotate(10deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* animacj (efekt hover) */
+  .card-hover {
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+    100% { transform: translateY(-10px) rotate(1deg); }
+  }
+  
+  footer {
+    margin-top: 50px;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 14px;
+  }
+  
+  /* tlo z emotkami */
+  #emoji-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .floating-emoji {
+    position: fixed;
+    font-size: 32px; 
+    pointer-events: none;
+    animation: floatAround var(--float-duration, 15s) linear infinite;
+    z-index: -1;
+    opacity: 0.65;
+  }
+  
+  @keyframes floatAround {
+    0% {
+      transform: translate(var(--start-x), var(--start-y)) rotate(0deg);
+    }
+    25% {
+      transform: translate(var(--mid1-x), var(--mid1-y)) rotate(90deg);
+    }
+    50% {
+      transform: translate(var(--mid2-x), var(--mid2-y)) rotate(180deg);
+    }
+    75% {
+      transform: translate(var(--mid3-x), var(--mid3-y)) rotate(270deg);
+    }
+    100% {
+      transform: translate(var(--start-x), var(--start-y)) rotate(360deg);
+    }
+  }
+  
+  /* animacja strony */
+  body {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* edia queries */
+  @media (max-width: 768px) {
+    .games-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .game-card {
+      width: 90%;
+      max-width: 340px;
+    }
+    
+    .main-title {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-title {
+      font-size: 32px;
+    }
+    
+    h2 {
+      font-size: 18px;
+    }
+    
+    .game-card {
+      padding: 20px;
+    }
+  }

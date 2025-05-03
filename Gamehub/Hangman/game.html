@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangman - Gra w wisielca</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAvFJREFUWEftl01IVFEUx//nzYwfE9EHRkFRQR9QUbSIIskgLKJaFC0KjGhTRIsWtWpRQR+bIFoUtmpRi6AoEmoRRUXSIiOtRRBUVEQfWFT0Nc687z1x33OeM/PmvXnj+LERerm8d++5v3Pu/5x7rhIRwX9s6j/W/38AJkqwTURDXddFKpXC3wKSlRuwUlkBLFmCVFUVIALHcULQSqUCS9lhhNnpPPLeMuHnjO21IbS0tJR+NMYYoD9GkM/nAVVFFHF0HPdDhGB87tKRTqeRSCRCQsIAwqAuhJF3RAQiIlkb8wm7DsCZMwdvnpzD7IUJ3Lrl4tTJE4G11nUdkXnKN5ZOp8UYOzU1JW1tbdLZ2SnT09NSCACiiQMA1oP7OL30Oi48uI3LN+/iwOH5+PCgbJA8MGnr6OiQ7u5uGRgYkP7+fmt7W1ubNDc3S09Pj4yNjUkmk5GZmZkKAK4HPXgfd644iIeHmXMW4+H9MuBiEqEA5kK+qK+vl6amJhkdHZXJyUk7NzY2JiMjI4UkDC+zvoLhGThw5GGM2/iKiODrlzE7ljQSlLLBiYqtra3S2dkpg4ODdm5sbEz6+vqkt7dXpqamZHJyUiYmJuT169cyOztbKQcWZ8Dxw5zJFuclI0/UfnHzEyQP5wnmYqcLkQCccyQSiUL5wzkHY8xaOpVCaKN2P/ZgkogcJ2N1XXc/Ny8Tc15MhK0kQMYGfL4DgGsGI/wuExFs5jZL8ikLYIJmXlHR8PULrR4Ztc8JKShvFQFccjG7+RONGxmszSzS7jOBj0rL0QLknQu8fLeG5JdhLG9uRs1iDSJGMVQCYBzjay7ajkKufsDTRwJOGQDADf/WATYESwtAvr9E/RKF5AUML4iHa1UpAPMX/gTKKHvYI0WApyOEtWsPAUDYXQKgSgDcB4CNb4RCXUGJ8TbgR5kArucV9WQNc0uUF+P514xdAJGSPTwq1V4JlYUoZZ5YCwETCqQp0U2bm0F7kOkw7j8B8At20NnhP/NrwwAAAABJRU5ErkJggg==">
+</head>
+<body>
+  <div id="emoji-background"></div>
+  
+  <header>
+    <h1><a href="index.html" class="game-title">Hangman</a></h1>
+    <h2>Gra w wisielca</h2>
+  </header>
+
+  <main>
+    <div id="attempts-container" class="attempts-container">
+      <div id="attempts" class="attempts">
+        <!-- liczba prob dodana przez JS -->
+      </div>
+      <div id="difficulty-badge" class="difficulty-badge">
+        <!-- trudnosc dodana przez JS -->
+      </div>
+    </div>
+
+    <div id="hangman-container">
+      <svg id="hangman-svg" width="200" height="250" viewBox="0 0 200 250">
+        <!-- podstawa -->
+        <line x1="20" y1="230" x2="180" y2="230" stroke="#B7B1F2" stroke-width="10" stroke-linecap="round" class="hangman-part" id="base" />
+        <!-- slupek -->
+        <line x1="60" y1="230" x2="60" y2="30" stroke="#B7B1F2" stroke-width="8" stroke-linecap="round" class="hangman-part" id="pole" />
+        <!-- gorna belka -->
+        <line x1="60" y1="30" x2="140" y2="30" stroke="#B7B1F2" stroke-width="8" stroke-linecap="round" class="hangman-part" id="top" />
+        <!-- linka -->
+        <line x1="140" y1="30" x2="140" y2="60" stroke="#B7B1F2" stroke-width="5" stroke-linecap="round" class="hangman-part" id="rope" />
+        <!-- glowa -->
+        <circle cx="140" cy="80" r="20" stroke="#FDB7EA" stroke-width="5" fill="transparent" class="hangman-part" id="head" />
+        <!-- tulow -->
+        <line x1="140" y1="100" x2="140" y2="150" stroke="#FDB7EA" stroke-width="5" stroke-linecap="round" class="hangman-part" id="body" />
+        <!-- lewa reka -->
+        <line x1="140" y1="120" x2="120" y2="140" stroke="#FDB7EA" stroke-width="5" stroke-linecap="round" class="hangman-part" id="left-arm" />
+        <!-- prawa reka -->
+        <line x1="140" y1="120" x2="160" y2="140" stroke="#FDB7EA" stroke-width="5" stroke-linecap="round" class="hangman-part" id="right-arm" />
+        <!-- lewa noga -->
+        <line x1="140" y1="150" x2="120" y2="180" stroke="#FDB7EA" stroke-width="5" stroke-linecap="round" class="hangman-part" id="left-leg" />
+        <!-- lewa noga -->
+        <line x1="140" y1="150" x2="160" y2="180" stroke="#FDB7EA" stroke-width="5" stroke-linecap="round" class="hangman-part" id="right-leg" />
+        <!-- twarz - oczy i usta - pojawiaja sie gdy gracz przegra -->
+        <g id="face" class="hangman-part">
+          <line x1="132" y1="75" x2="138" y2="81" stroke="#FDB7EA" stroke-width="3" stroke-linecap="round" />
+          <line x1="138" y1="75" x2="132" y2="81" stroke="#FDB7EA" stroke-width="3" stroke-linecap="round" />
+          <line x1="142" y1="75" x2="148" y2="81" stroke="#FDB7EA" stroke-width="3" stroke-linecap="round" />
+          <line x1="148" y1="75" x2="142" y2="81" stroke="#FDB7EA" stroke-width="3" stroke-linecap="round" />
+          <path d="M130 90 Q140 85 150 90" stroke="#FDB7EA" stroke-width="3" fill="transparent" />
+        </g>
+      </svg>
+    </div>
+
+    <div id="word-container" class="word-container">
+      <!-- tutaj slowo do odgadniecia -->
+    </div>
+
+    <div id="keyboard" class="keyboard">
+      <div class="keyboard-row">
+        <button class="keyboard-key">A</button>
+        <button class="keyboard-key">Ą</button>
+        <button class="keyboard-key">B</button>
+        <button class="keyboard-key">C</button>
+        <button class="keyboard-key">Ć</button>
+        <button class="keyboard-key">D</button>
+        <button class="keyboard-key">E</button>
+        <button class="keyboard-key">Ę</button>
+        <button class="keyboard-key">F</button>
+        <button class="keyboard-key">G</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key">H</button>
+        <button class="keyboard-key">I</button>
+        <button class="keyboard-key">J</button>
+        <button class="keyboard-key">K</button>
+        <button class="keyboard-key">L</button>
+        <button class="keyboard-key">Ł</button>
+        <button class="keyboard-key">M</button>
+        <button class="keyboard-key">N</button>
+        <button class="keyboard-key">Ń</button>
+        <button class="keyboard-key">O</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key">Ó</button>
+        <button class="keyboard-key">P</button>
+        <button class="keyboard-key">Q</button>
+        <button class="keyboard-key">R</button>
+        <button class="keyboard-key">S</button>
+        <button class="keyboard-key">Ś</button>
+        <button class="keyboard-key">T</button>
+        <button class="keyboard-key">U</button>
+        <button class="keyboard-key">V</button>
+        <button class="keyboard-key">W</button>
+      </div>
+      <div class="keyboard-row">
+        <button class="keyboard-key">X</button>
+        <button class="keyboard-key">Y</button>
+        <button class="keyboard-key">Z</button>
+        <button class="keyboard-key">Ź</button>
+        <button class="keyboard-key">Ż</button>
+      </div>
+    </div>
+
+    <div id="game-stats" class="game-stats hidden">
+      <span id="time-elapsed">Czas: 0s</span>
+      <span id="letters-guessed">Użyte litery: 0</span>
+    </div>
+
+    <div id="message" class="hidden">
+      <p id="message-text"></p>
+      <p id="correct-word"></p>
+      <div id="score-info" class="score-info"></div>
+      <button id="play-again-button" onclick="restartGame()">Zagraj ponownie</button>
+      <button id="new-game-button" onclick="goToMainMenu()">Wybierz inny poziom</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Hangman</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emojis = [
+        '📝', '✏️', '📚', '📖', '🔤', '🔡', '🔠', '🎮', '🎯', '🎪',
+        '🎨', '🎭', '🎪', '🎟️', '🎫', '🎬', '🎤', '🎧', '🎼', '🎹',
+        '🎷', '🎺', '🎸', '🎻', '🎲', '🧩', '🧠', '👁️', '👀', '👓'
+      ];
+      
+      // particle emotki
+      const backgroundElement = document.getElementById('emoji-background');
+      
+      function addFloatingEmoji() {
+        const emoji = document.createElement('div');
+        emoji.className = 'floating-emoji';
+        
+        // losowanie emotek
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.textContent = randomEmoji;
+        
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        
+        // punkty posrednie
+        const mid1X = Math.random() * window.innerWidth;
+        const mid1Y = Math.random() * window.innerHeight;
+        const mid2X = Math.random() * window.innerWidth;
+        const mid2Y = Math.random() * window.innerHeight;
+        const mid3X = Math.random() * window.innerWidth;
+        const mid3Y = Math.random() * window.innerHeight;
+        
+        // losowy czas animacji
+        const duration = 15 + Math.random() * 20;
+        
+        // zmienne css dla animacji
+        emoji.style.setProperty('--start-x', `${startX}px`);
+        emoji.style.setProperty('--start-y', `${startY}px`);
+        emoji.style.setProperty('--mid1-x', `${mid1X}px`);
+        emoji.style.setProperty('--mid1-y', `${mid1Y}px`);
+        emoji.style.setProperty('--mid2-x', `${mid2X}px`);
+        emoji.style.setProperty('--mid2-y', `${mid2Y}px`);
+        emoji.style.setProperty('--mid3-x', `${mid3X}px`);
+        emoji.style.setProperty('--mid3-y', `${mid3Y}px`);
+        emoji.style.setProperty('--float-duration', `${duration}s`);
+        
+        backgroundElement.appendChild(emoji);
+        
+        setTimeout(() => {
+          emoji.remove();
+        }, duration * 1000);
+      }
+      
+      for (let i = 0; i < 15; i++) {
+        addFloatingEmoji();
+      }
+      
+      setInterval(addFloatingEmoji, 3000);
+    });
+  </script>
+</body>
+</html>

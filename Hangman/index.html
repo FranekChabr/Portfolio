@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hangman - Gra w wisielca</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAvFJREFUWEftl01IVFEUx//nzYwfE9EHRkFRQR9QUbSIIskgLKJaFC0KjGhTRIsWtWpRQR+bIFoUtmpRi6AoEmoRRUXSIiOtRRBUVEQfWFT0Nc687z1x33OeM/PmvXnj+LERerm8d++5v3Pu/5x7rhIRwX9s6j/W/38AJkqwTURDXddFKpXC3wKSlRuwUlkBLFmCVFUVIALHcULQSqUCS9lhhNnpPPLeMuHnjO21IbS0tJR+NMYYoD9GkM/nAVVFFHF0HPdDhGB87tKRTqeRSCRCQsIAwqAuhJF3RAQiIlkb8wm7DsCZMwdvnpzD7IUJ3Lrl4tTJE4G11nUdkXnKN5ZOp8UYOzU1JW1tbdLZ2SnT09NSCACiiQMA1oP7OL30Oi48uI3LN+/iwOH5+PCgbJA8MGnr6OiQ7u5uGRgYkP7+fmt7W1ubNDc3S09Pj4yNjUkmk5GZmZkKAK4HPXgfd644iIeHmXMW4+H9MuBiEqEA5kK+qK+vl6amJhkdHZXJyUk7NzY2JiMjI4UkDC+zvoLhGThw5GGM2/iKiODrlzE7ljQSlLLBiYqtra3S2dkpg4ODdm5sbEz6+vqkt7dXpqamZHJyUiYmJuT169cyOztbKQcWZ8Dxw5zJFuclI0/UfnHzEyQP5wnmYqcLkQCccyQSiUL5wzkHY8xaOpVCaKN2P/ZgkogcJ2N1XXc/Ny8Tc15MhK0kQMYGfL4DgGsGI/wuExFs5jZL8ikLYIJmXlHR8PULrR4Ztc8JKShvFQFccjG7+RONGxmszSzS7jOBj0rL0QLknQu8fLeG5JdhLG9uRs1iDSJGMVQCYBzjay7ajkKufsDTRwJOGQDADf/WATYESwtAvr9E/RKF5AUML4iHa1UpAPMX/gTKKHvYI0WApyOEtWsPAUDYXQKgSgDcB4CNb4RCXUGJ8TbgR5kArucV9WQNc0uUF+P514xdAJGSPTwq1V4JlYUoZZ5YCwETCqQp0U2bm0F7kOkw7j8B8At20NnhP/NrwwAAAABJRU5ErkJggg==">
+</head>
+<body>
+  <div id="emoji-background"></div>
+  
+  <header>
+    <h1><a href="../home.html" class="game-title">Game Hub</a></h1>
+    <h2>Gra w wisielca</h2>
+  </header>
+
+  <main>
+    <div class="game-description">
+      <p>Witaj w grze Hangman! Twoim zadaniem jest odgadnięcie ukrytego słowa.
+      Wybierz poziom trudności i uratuj wisielca przed szubienicą!</p>
+    </div>
+    
+    <div id="level-selection">
+      <button onclick="startGame('easy')" class="level-btn level-1">
+        <span class="level-number">Poziom 1</span>
+        <span class="level-desc">łatwe słowa</span>
+        <span class="level-difficulty">Łatwy</span>
+      </button>
+      
+      <button onclick="startGame('medium')" class="level-btn level-2">
+        <span class="level-number">Poziom 2</span>
+        <span class="level-desc">średnie słowa</span>
+        <span class="level-difficulty">Średni</span>
+      </button>
+      
+      <button onclick="startGame('hard')" class="level-btn level-3">
+        <span class="level-number">Poziom 3</span>
+        <span class="level-desc">trudne słowa</span>
+        <span class="level-difficulty">Trudny</span>
+      </button>
+      
+      <button onclick="startGame('expert')" class="level-btn level-4">
+        <span class="level-number">Poziom 4</span>
+        <span class="level-desc">bardzo trudne słowa</span>
+        <span class="level-difficulty">Ekspert</span>
+      </button>
+    </div>
+    
+    <button id="show-rules" class="rules-btn">Jak grać?</button>
+  </main>
+
+  <!-- instrukcje gry (popup) -->
+  <div class="game-rules" id="rules-popup">
+    <div class="game-rules-content">
+      <h3>Jak grać? 🤔</h3>
+      <ul>
+        <li>Twoim zadaniem jest odgadnięcie ukrytego słowa.</li>
+        <li>Klikaj na litery, aby sprawdzić czy występują w słowie.</li>
+        <li>Za każdą błędną literę wisielec traci życie - pojawia się kolejny element rysunku.</li>
+        <li>Wygraj zanim cały rysunek wisielca zostanie ukończony!</li>
+        <li>W zależności od wybranego poziomu trudności masz różną liczbę prób oraz trudniejsze słowa do odgadnięcia.</li>
+      </ul>
+      <button class="close-rules">Powrót do gry</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hangman</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emojis = [
+        '📝', '✏️', '📚', '📖', '🔤', '🔡', '🔠', '🎮', '🎯', '🎪',
+        '🎨', '🎭', '🎪', '🎟️', '🎫', '🎬', '🎤', '🎧', '🎼', '🎹',
+        '🎷', '🎺', '🎸', '🎻', '🎲', '🧩', '🧠', '👁️', '👀', '👓'
+      ];
+      
+      // particle emotki
+      const backgroundElement = document.getElementById('emoji-background');
+      
+      function addFloatingEmoji() {
+        const emoji = document.createElement('div');
+        emoji.className = 'floating-emoji';
+        
+        // losowanie emotek
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.textContent = randomEmoji;
+        
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        
+        // punkty posrednie
+        const mid1X = Math.random() * window.innerWidth;
+        const mid1Y = Math.random() * window.innerHeight;
+        const mid2X = Math.random() * window.innerWidth;
+        const mid2Y = Math.random() * window.innerHeight;
+        const mid3X = Math.random() * window.innerWidth;
+        const mid3Y = Math.random() * window.innerHeight;
+        
+        // losowy czas animacji
+        const duration = 15 + Math.random() * 20;
+        
+        // zmienne css dla animacji
+        emoji.style.setProperty('--start-x', `${startX}px`);
+        emoji.style.setProperty('--start-y', `${startY}px`);
+        emoji.style.setProperty('--mid1-x', `${mid1X}px`);
+        emoji.style.setProperty('--mid1-y', `${mid1Y}px`);
+        emoji.style.setProperty('--mid2-x', `${mid2X}px`);
+        emoji.style.setProperty('--mid2-y', `${mid2Y}px`);
+        emoji.style.setProperty('--mid3-x', `${mid3X}px`);
+        emoji.style.setProperty('--mid3-y', `${mid3Y}px`);
+        emoji.style.setProperty('--float-duration', `${duration}s`);
+        
+        backgroundElement.appendChild(emoji);
+        
+        setTimeout(() => {
+          emoji.remove();
+        }, duration * 1000);
+      }
+      
+      for (let i = 0; i < 20; i++) {
+        addFloatingEmoji();
+      }
+      
+      setInterval(addFloatingEmoji, 3000);
+      
+      // obsluga przycisku jak grac
+      const rulesBtn = document.getElementById('show-rules');
+      const rulesPopup = document.getElementById('rules-popup');
+      const closeRulesBtn = document.querySelector('.close-rules');
+      
+      rulesBtn.addEventListener('click', function() {
+        rulesPopup.style.display = 'flex';
+      });
+      
+      closeRulesBtn.addEventListener('click', function() {
+        rulesPopup.style.display = 'none';
+      });
+    });
+
+    function startGame(difficulty) {
+      // animacja przed przekierowaniem
+      document.body.classList.add('page-transition');
+      setTimeout(() => {
+        // przekierowanie na game.html z parametrem difficulty
+        window.location.href = `game.html?difficulty=${difficulty}`;
+      }, 400);
+    }
+  </script>
+</body>
+</html>

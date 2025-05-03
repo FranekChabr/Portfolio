@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memo Cards - Gra pamięciowa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAvFJREFUWEftl01IVFEUx//nzYwfE9EHRkFRQR9QUbSIIskgLKJaFC0KjGhTRIsWtWpRQR+bIFoUtmpRi6AoEmoRRUXSIiOtRRBUVEQfWFT0Nc687z1x33OeM/PmvXnj+LERerm8d++5v3Pu/5x7rhIRwX9s6j/W/38AJkqwTURDXddFKpXC3wKSlRuwUlkBLFmCVFUVIALHcULQSqUCS9lhhNnpPPLeMuHnjO21IbS0tJR+NMYYoD9GkM/nAVVFFHF0HPdDhGB87tKRTqeRSCRCQsIAwqAuhJF3RAQiIlkb8wm7DsCZMwdvnpzD7IUJ3Lrl4tTJE4G11nUdkXnKN5ZOp8UYOzU1JW1tbdLZ2SnT09NSCACiiQMA1oP7OL30Oi48uI3LN+/iwOH5+PCgbJA8MGnr6OiQ7u5uGRgYkP7+fmt7W1ubNDc3S09Pj4yNjUkmk5GZmZkKAK4HPXgfd644iIeHmXMW4+H9MuBiEqEA5kK+qK+vl6amJhkdHZXJyUk7NzY2JiMjI4UkDC+zvoLhGThw5GGM2/iKiODrlzE7ljQSlLLBiYqtra3S2dkpg4ODdm5sbEz6+vqkt7dXpqamZHJyUiYmJuT169cyOztbKQcWZ8Dxw5zJFuclI0/UfnHzEyQP5wnmYqcLkQCccyQSiUL5wzkHY8xaOpVCaKN2P/ZgkogcJ2N1XXc/Ny8Tc15MhK0kQMYGfL4DgGsGI/wuExFs5jZL8ikLYIJmXlHR8PULrR4Ztc8JKShvFQFccjG7+RONGxmszSzS7jOBj0rL0QLknQu8fLeG5JdhLG9uRs1iDSJGMVQCYBzjay7ajkKufsDTRwJOGQDADf/WATYESwtAvr9E/RKF5AUML4iHa1UpAPMX/gTKKHvYI0WApyOEtWsPAUDYXQKgSgDcB4CNb4RCXUGJ8TbgR5kArucV9WQNc0uUF+P514xdAJGSPTwq1V4JlYUoZZ5YCwETCqQp0U2bm0F7kOkw7j8B8At20NnhP/NrwwAAAABJRU5ErkJggg==">
+</head>
+<body>
+  <div id="emoji-background"></div>
+  
+  <header>
+    <h1><a href="index.html" class="game-title">Memo Game</a></h1>
+    <h2>Gra pamięciowa</h2>
+  </header>
+
+  <main>
+    <div id="lives">❤️❤️❤️</div>
+    <div id="game-board"></div>
+    <div id="message" class="hidden">
+      <p id="message-text"></p>
+      <button onclick="restartGame()">Zagraj ponownie</button>
+      <div id="next-level">
+        <p id="next-level-text"></p>
+        <button id="next-level-button" onclick="startNextLevel()">Zagraj kolejny poziom</button>
+      </div>
+      <button id="go-home" class="hidden" onclick="goHome()">Powrót do strony głównej</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Memo Game</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardSymbols = [
+        '🍎', '🍌', '🍊', '🍇', '🍓', '🍒', '🍑', '🍍', 
+        '🥝', '🍅', '🥑', '🥕', '🌽', '🥔', '🍄', '🌰',
+        '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
+        '🦁', '🐯', '🐨', '🐮', '🐷', '🐸', '🐵', '🐔'
+      ];
+      
+      // particle emotki
+      const backgroundElement = document.getElementById('emoji-background');
+      
+      function addFloatingEmoji() {
+        const emoji = document.createElement('div');
+        emoji.className = 'floating-emoji';
+        
+        // losowanie emotek
+        const randomSymbol = cardSymbols[Math.floor(Math.random() * cardSymbols.length)];
+        emoji.textContent = randomSymbol;
+        
+        // losowa pozycja startu
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        
+        // punkty posrednie
+        const mid1X = Math.random() * window.innerWidth;
+        const mid1Y = Math.random() * window.innerHeight;
+        const mid2X = Math.random() * window.innerWidth;
+        const mid2Y = Math.random() * window.innerHeight;
+        const mid3X = Math.random() * window.innerWidth;
+        const mid3Y = Math.random() * window.innerHeight;
+        
+        // losowy czas animacji
+        const duration = 15 + Math.random() * 20;
+        
+        // zmienne css dla animacji 
+        emoji.style.setProperty('--start-x', `${startX}px`);
+        emoji.style.setProperty('--start-y', `${startY}px`);
+        emoji.style.setProperty('--mid1-x', `${mid1X}px`);
+        emoji.style.setProperty('--mid1-y', `${mid1Y}px`);
+        emoji.style.setProperty('--mid2-x', `${mid2X}px`);
+        emoji.style.setProperty('--mid2-y', `${mid2Y}px`);
+        emoji.style.setProperty('--mid3-x', `${mid3X}px`);
+        emoji.style.setProperty('--mid3-y', `${mid3Y}px`);
+        emoji.style.setProperty('--float-duration', `${duration}s`);
+        
+        backgroundElement.appendChild(emoji);
+        
+        setTimeout(() => {
+          emoji.remove();
+        }, duration * 1000);
+      }
+      
+      for (let i = 0; i < 15; i++) {
+        addFloatingEmoji();
+      }
+      
+      setInterval(addFloatingEmoji, 3000);
+      
+      // wysrodkowanie przycisku "Zagraj ponownie"
+      const nextLevelButton = document.getElementById('next-level-button');
+      if (nextLevelButton) {
+        nextLevelButton.style.margin = '15px auto';
+        nextLevelButton.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
