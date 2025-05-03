@@ -47,7 +47,7 @@ Gra wspiera dźwięki przy:
 1. Pobierz lub sklonuj repozytorium:
 
    ```bash
-   git clone 
+   git clone https://github.com/FranekChabr/Portfolio/edit/main/Gamehub.git
 
 ---
 
