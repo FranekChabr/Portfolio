@@ -2,8 +2,8 @@
 
 Zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript:
 
-- *Memo Cards* – gra pamięciowa oparta na dopasowywaniu kart.
-- *Hangman* – gra słowna, w której odgadujesz ukryte słowo, zanim pojawi się cały wisielec.
+- **Memo Cards** – gra pamięciowa oparta na dopasowywaniu kart.
+- **Hangman** – gra słowna, w której odgadujesz ukryte słowo, zanim pojawi się cały wisielec.
 
 ---
 
@@ -63,4 +63,4 @@ Gra wspiera dźwięki przy:
 - CSS3
 
 
-Projekt stworzony przez Franciszka Chabrosa jako część portfolio.
+Projekt stworzony przez Franciszka Chabrosa 
