@@ -49,12 +49,18 @@ Gra wspiera dźwięki przy:
    ```bash
    git clone https://github.com/FranekChabr/Portfolio.git
 
+2. Następnie przejdź do folderu Gamehub
+
+   ```bash
+   cd Portfolio/Gamehub
+
+3. Po czym otworz plik *index.html* w swojej przegladarce
 ---
 
 ## 💡 Technologie
+- Vanilla JavaScript
 - HTML5
 - CSS3
-- Vanilla JavaScript
 
 
 Projekt stworzony przez Franciszka Chabrosa jako część portfolio.
