@@ -2,12 +2,12 @@
 
 Zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript:
 
-- **Memo Cards 🧠** – gra pamięciowa oparta na dopasowywaniu kart.
-- **Hangman 🎯** – gra słowna, w której odgadujesz ukryte słowo, zanim pojawi się cały wisielec.
+- **Memo Cards ** – gra pamięciowa oparta na dopasowywaniu kart.
+- **Hangman ** – gra słowna, w której odgadujesz ukryte słowo, zanim pojawi się cały wisielec.
 
 ---
 
-## Memo Cards 🧠
+## Memo Cards 
 
 Prosta gra pamięciowa stworzona w czystym HTML, CSS i JavaScript.
 
@@ -21,7 +21,7 @@ Po ukończeniu planszy gra zaproponuje przejście do trudniejszego poziomu.
 
 ---
 
-## Hangman 🎯
+## Hangman 
 
 Klasyczna gra wisielec z animowaną postacią, która pojawia się stopniowo przy każdej pomyłce.
 
@@ -32,7 +32,7 @@ Klasyczna gra wisielec z animowaną postacią, która pojawia się stopniowo prz
 
 ---
 
-## 🔈 Dźwięki
+##  Dźwięki
 
 Efekty dźwiękowe znajdują się w katalogach `assets/sounds/`.  
 Gra wspiera dźwięki przy:
@@ -42,7 +42,7 @@ Gra wspiera dźwięki przy:
 
 ---
 
-## 🚀 Uruchomienie
+## Uruchomienie
 
 1. Pobierz lub sklonuj repozytorium:
 
@@ -57,7 +57,7 @@ Gra wspiera dźwięki przy:
 3. Po czym otworz plik *home.html* w swojej przegladarce
 ---
 
-## 💡 Technologie
+## Technologie
 - Vanilla JavaScript
 - HTML5
 - CSS3
