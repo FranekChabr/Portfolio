@@ -54,7 +54,7 @@ Gra wspiera dźwięki przy:
    ```bash
    cd Portfolio/Gamehub
 
-3. Po czym otworz plik *index.html* w swojej przegladarce
+3. Po czym otworz plik *home.html* w swojej przegladarce
 ---
 
 ## 💡 Technologie
