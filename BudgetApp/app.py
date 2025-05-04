@@ -68,7 +68,7 @@ def inject_current_year():
 
 # 5) SMTP – dane do maili
 SMTP_USER = 'alert.mailowy@mail.com'
-SMTP_PASS = 'hHU5crPwYQBM2BK'
+SMTP_PASS = 'haslo'
 SMTP_HOST = 'smtp.mail.com'
 SMTP_PORT = 587
 
