@@ -71,14 +71,14 @@ bashpython -m venv venv
 ```
 
 3. Aktywuj wirtualne środowisko *(najbezpieczniej)*
-- Windows:
-```
-bashvenv\Scripts\activate
-```
-- macOS/Linux:
-```
-bashsource venv/bin/activate
-```
+    - Windows:
+    ```
+    bashvenv\Scripts\activate
+    ```
+    - macOS/Linux:
+    ```
+    bashsource venv/bin/activate
+    ```
 
 4. Zainstaluj wymagane pakiety
 ```
