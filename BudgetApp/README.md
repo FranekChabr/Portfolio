@@ -19,15 +19,15 @@ Aplikacja Budget app to narzędzie do śledzenia wydatków domowych z możliwoś
   <tr>
     <td align="center">
       <img src="screenshots/expenses.png" width="320"/><br/>
-      <sub>Memo Cards – menu</sub>
+      <sub>wydatki</sub>
     </td>
     <td align="center">
       <img src="screenshots/expenses2.png" width="320"/><br/>
-      <sub>Memo Cards – plansza</sub>
+      <sub>wydatki – lista</sub>
     </td>
     <td align="center">
       <img src="screenshots/settings1.png" width="320"/><br/>
-      <sub>Memo Cards – wygrana</sub>
+      <sub>ustawienia</sub>
     </td>
   </tr>
 </table>
