@@ -1,5 +1,5 @@
-# Budżet Domowy 📈- Aplikacja do zarządzania wydatkami
-Aplikacja Budżet Domowy to narzędzie do śledzenia wydatków domowych z możliwością ustawiania limitów budżetowych, kategoryzowania wydatków oraz przeglądu historii finansów z wykorzystaniem przejrzystego kalendarza.
+# Budget app 📈- Aplikacja do zarządzania wydatkami
+Aplikacja Budget app to narzędzie do śledzenia wydatków domowych z możliwością ustawiania limitów budżetowych, kategoryzowania wydatków oraz przeglądu historii finansów z wykorzystaniem przejrzystego kalendarza.
 
 ## Funkcje
 
@@ -12,9 +12,27 @@ Aplikacja Budżet Domowy to narzędzie do śledzenia wydatków domowych z możli
 - 📱 Responsywny interfejs działający na różnych urządzeniach
 
 ## Zrzuty ekranu działania aplikacji
+
 ![dashboard](screenshots/dashboard1.png)
-![expenses](screenshots/expenses.png)
-![settings](screenshots/settings1.png)
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/expenses.png" width="320"/><br/>
+      <sub>Memo Cards – menu</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/expenses2.png" width="320"/><br/>
+      <sub>Memo Cards – plansza</sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/settings1.png" width="320"/><br/>
+      <sub>Memo Cards – wygrana</sub>
+    </td>
+  </tr>
+</table>
+
+
 
 ## Technologie
 
