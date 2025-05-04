@@ -12,7 +12,9 @@ Aplikacja Budżet Domowy to narzędzie do śledzenia wydatków domowych z możli
 - 📱 Responsywny interfejs działający na różnych urządzeniach
 
 ## Zrzuty ekranu działania aplikacji
-![dashboard](screenshots/dashboard.png)
+![dashboard](screenshots/dashboard1.png)
+![expenses](screenshots/expenses.png)
+![settings](screenshots/settings1.png)
 
 ## Technologie
 
