@@ -1,67 +1,63 @@
-# Game Hub 🎮
+# Game Hub 🎮 – Zbiór gier webowych
 
-Zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript:
+**Game Hub** to zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript. Projekt służy zarówno jako portfolio frontendowe, jak i przyjemna rozrywka online.
 
-- **Memo Cards** – gra pamięciowa oparta na dopasowywaniu kart.
-- **Hangman** – gra słowna, w której odgadujesz ukryte słowo, zanim pojawi się cały wisielec.
+## 🎮 Zawarte gry
 
----
+### 🧠 Memo Cards – Gra pamięciowa
 
-## Memo Cards 
+Gra polega na odnajdywaniu par kart:
 
-Prosta gra pamięciowa stworzona w czystym HTML, CSS i JavaScript.
+- Wybierz poziom trudności (od 2x2 do 8x8).
+- Znajdź wszystkie pary przy jak najmniejszej liczbie pomyłek.
+- Na większości plansz obowiązuje limit serduszek (błędów).
+- Ostatnia plansza (8x8) nie ma limitu serduszek.
+- Po ukończeniu poziomu gra zaproponuje przejście na trudniejszy.
 
-### Jak grać?
-- Wybierz poziom trudności (np. 2x2, 4x4, aż do 8x8).
-- Odkrywaj karty i znajdź wszystkie pary.
-- Na każdej planszy masz daną ilość serduszek – każda nieudana próba kosztuje Cię serduszko!  
-- **Wyjątek:** ostatnia plansza (8x8) nie ma limitu serduszek.
+### 🔤 Hangman – Wisielec
 
-Po ukończeniu planszy gra zaproponuje przejście do trudniejszego poziomu.
+Klasyczna gra słowna:
 
----
+- Odgadnij słowo, zanim pojawi się cały wisielec.
+- 5 błędnych liter powoduje przegraną.
+- Stopniowo odkrywana jest animowana postać wisielca.
 
-## Hangman 
+## 🔊 Dźwięki
 
-Klasyczna gra wisielec z animowaną postacią, która pojawia się stopniowo przy każdej pomyłce.
+Obie gry posiadają efekty dźwiękowe znajdujące się w katalogu `assets/sounds/`. Dźwięki odtwarzane są przy:
 
-### Jak grać?
-- Wybierz poziom trudności (trudność zależna od długości słowa).
-- Masz 5 prób – każda zła litera odkrywa fragment wisielca.
-- Odgadnij słowo zanim pojawi się cały wisielec!
-
----
-
-##  Dźwięki
-
-Efekty dźwiękowe znajdują się w katalogach `assets/sounds/`.  
-Gra wspiera dźwięki przy:
 - poprawnych ruchach,
 - błędach,
 - wygranej i przegranej.
 
----
+## 📁 Struktura projektu
 
-## Uruchomienie
+- `home.html` – strona główna z wyborem gry  
+- `memo/` – folder z grą Memo Cards  
+- `hangman/` – folder z grą Hangman  
+- `assets/` – obrazy i dźwięki wykorzystywane w grach  
+- `css/` – arkusze stylów CSS  
 
-1. Pobierz lub sklonuj repozytorium:
+## 🚀 Jak uruchomić?
+
+1. Sklonuj repozytorium:
 
    ```bash
    git clone https://github.com/FranekChabr/Portfolio.git
-
-2. Następnie przejdź do folderu Gamehub
-
-   ```bash
    cd Portfolio/Gamehub
-
-3. Po czym otworz plik *home.html* w swojej przegladarce
----
+   ```
+2. Otwórz plik home.html w przeglądarce 
 
 ## Technologie
 - Vanilla JavaScript
 - HTML5
 - CSS3
 
+## Możliwości rozwoju
+- Dodanie opcji zapisywania wyników (localStorage) 
+- Ranking graczy (top score)
+- Dostosowanie motywu graficznego (np. dark mode)
+- Dodanie trzeciej gry do kolekcji
 
 ### Autor
 Franciszek Chabros franekchabr@gmail.com
