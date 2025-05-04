@@ -63,4 +63,5 @@ Gra wspiera dźwięki przy:
 - CSS3
 
 
-Projekt stworzony przez Franciszka Chabrosa 
+### Autor
+Franciszek Chabros franekchabr@gmail.com
