@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Budżet Domowy{% endblock %}
+
+{% block content %}
+<h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h4>Limit budżetu ({{ period }})</h4>
+        <div class="value">{{ "%.2f"|format(current_limit) }} PLN</div>
+    </div>
+
+    <div class="stat-card">
+        <h4>Wydatki ({{ period }})</h4>
+        <div class="value">{{ "%.2f"|format(period_expenses) }} PLN</div>
+    </div>
+
+    <div class="stat-card">
+        <h4>Pozostało</h4>
+        <div class="value {% if current_limit - period_expenses >= 0 %}balance-positive{% else %}balance-negative{% endif %}">
+            {{ "%.2f"|format(current_limit - period_expenses) }} PLN
+        </div>
+        <div class="secondary">
+            {% if current_limit > 0 %}
+            {{ "%.1f"|format((period_expenses / current_limit) * 100) }}% limitu wykorzystane
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <h4>Całkowite wydatki</h4>
+        <div class="value">{{ "%.2f"|format(total_expenses) }} PLN</div>
+        <div class="secondary">Wszystkie okresy</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="calendar-header">
+        <a href="{{ url_for('dashboard', year=prev_year, month=prev_month) }}" class="calendar-arrow"><i class="fas fa-chevron-left"></i></a>
+        <h3>{{ month_name }} {{ year }}</h3>
+        <a href="{{ url_for('dashboard', year=next_year, month=next_month) }}" class="calendar-arrow"><i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <div class="calendar">
+        <div class="week">
+            <div class="day-name">Pn</div>
+            <div class="day-name">Wt</div>
+            <div class="day-name">Śr</div>
+            <div class="day-name">Cz</div>
+            <div class="day-name">Pt</div>
+            <div class="day-name">Sb</div>
+            <div class="day-name">Nd</div>
+        </div>
+
+        {% for week in range(6) %}
+            <div class="week">
+                {% for weekday in range(7) %}
+                    {% set day_num = week * 7 + weekday - first_weekday + 1 %}
+                    {% if day_num < 1 or day_num > last_day %}
+                        <div class="day empty"></div>
+                    {% else %}
+                        <div class="day {% if day_num == today_day and month == today_month and year == today_year %}today{% endif %}">
+                            <div class="day-number">{{ day_num }}</div>
+                            {% if daily_expenses[day_num] > 0 %}
+                                <div class="expense">
+                                    <i class="fas fa-receipt"></i> {{ "%.2f"|format(daily_expenses[day_num]) }} PLN
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

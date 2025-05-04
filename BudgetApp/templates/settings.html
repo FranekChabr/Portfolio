@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Ustawienia - Budżet Domowy{% endblock %}
+{% block content %}
+<h2><i class="fas fa-cog"></i> Ustawienia</h2>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Ustawienia budżetu</h3>
+    </div>
+
+    <form method="post">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            <label>{{ form.budget_limit.label }}</label>
+            {{ form.budget_limit(class="form-control", placeholder="Podaj kwotę") }}
+        </div>
+
+        <div class="form-group">
+            <label>{{ form.limit_period.label }}</label>
+            {{ form.limit_period(class="form-control") }}
+        </div>
+
+        <div class="buttons-row">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <div class="current-settings">
+        <div class="stat-card" style="margin-top: 20px;">
+            <h4>Aktualny limit budżetu</h4>
+            <div class="value">{{ current_limit }} PLN</div>
+            <div class="secondary">Okres rozliczeniowy: {{ current_period }}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block title %}Lista wydatków - Budżet Domowy{% endblock %}
+{% block content %}
+<h2><i class="fas fa-list"></i> Lista wydatków</h2>
+
+<div class="filter-section">
+    <div class="card-header">
+        <h3><i class="fas fa-filter"></i> Filtruj wydatki</h3>
+    </div>
+    <form method="post" class="filter-form">
+        {{ filter_form.hidden_tag() }}
+        <div class="filter-row">
+            <div class="filter-field">
+                <label>{{ filter_form.category.label }}</label>
+                {{ filter_form.category(class="form-control") }}
+            </div>
+            <div class="filter-field">
+                <label>{{ filter_form.date_from.label }}</label>
+                {{ filter_form.date_from(type="date", class="form-control") }}
+            </div>
+            <div class="filter-field">
+                <label>{{ filter_form.date_to.label }}</label>
+                {{ filter_form.date_to(type="date", class="form-control") }}
+            </div>
+            <div class="filter-submit">
+                {{ filter_form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h4>Łączna suma wydatków</h4>
+        <div class="value">{{ "%.2f"|format(total) }} PLN</div>
+        <div class="secondary">Po zastosowaniu filtrów</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-chart-pie"></i> Podsumowanie kategorii</h3>
+    </div>
+
+    <div class="table-container">
+        <table class="categories-table">
+            <thead>
+                <tr>
+                    <th>Kategoria</th>
+                    <th>Suma</th>
+                    <th>Udział</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category, amount in category_totals.items() %}
+                <tr>
+                    <td>{{ category }}</td>
+                    <td>{{ "%.2f"|format(amount) }} PLN</td>
+                    <td>{{ "%.1f"|format((amount / total * 100) if total else 0) }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-receipt"></i> Lista wszystkich wydatków</h3>
+    </div>
+
+    <div class="table-container">
+        <table class="expenses-table">
+            <thead>
+                <tr>
+                    <th>Tytuł</th>
+                    <th>Kategoria</th>
+                    <th>Kwota</th>
+                    <th>Data</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.title }}</td>
+                    <td>
+                        <span class="category-badge">{{ expense.category }}</span>
+                    </td>
+                    <td>{{ "%.2f"|format(expense.amount) }} PLN</td>
+                    <td>{{ expense.date.strftime('%Y-%m-%d') }}</td>
+                    <td class="table-actions">
+                        <a href="{{ url_for('edit_expense', expense_id=expense.id) }}" class="btn btn-primary btn-small">
+                            <i class="fas fa-edit"></i> Edytuj
+                        </a>
+                        <form action="{{ url_for('delete_expense', expense_id=expense.id) }}" method="post" style="display:inline;">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger btn-small" onclick="return confirm('Na pewno usunąć ten wydatek?')">
+                                <i class="fas fa-trash"></i> Usuń
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 30px;">
+                        <i class="fas fa-info-circle"></i> Brak wydatków do wyświetlenia.
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .category-badge {
+        background-color: #e0e7ff;
+        color: #4338ca;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}

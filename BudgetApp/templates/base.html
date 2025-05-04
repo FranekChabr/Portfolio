@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Budżet domowy{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="{{ url_for('dashboard') }}" class="logo">
+            <i class="fas fa-wallet"></i> <b>Budżet Domowy</b>
+        </a>
+        <div class="nav-links">
+            <a href="{{ url_for('dashboard') }}" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="{{ url_for('view_expenses') }}" class="{% if request.endpoint == 'view_expenses' %}active{% endif %}">
+                <i class="fas fa-list"></i> Wydatki
+            </a>
+            <a href="{{ url_for('add_expense') }}" class="{% if request.endpoint == 'add_expense' %}active{% endif %}">
+                <i class="fas fa-plus-circle"></i> Dodaj
+            </a>
+            <a href="{{ url_for('settings_view') }}" class="{% if request.endpoint == 'settings_view' %}active{% endif %}">
+                <i class="fas fa-cog"></i> Ustawienia
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">
+            {% if category == 'success' %}
+              <i class="fas fa-check-circle"></i>
+            {% elif category == 'danger' %}
+              <i class="fas fa-exclamation-circle"></i>
+            {% elif category == 'warning' %}
+              <i class="fas fa-exclamation-triangle"></i>
+            {% endif %}
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
