@@ -30,15 +30,15 @@ Klasyczna gra słowna:
   <tr>
     <td align="center">
       <img src="assets/screenshots/memo.png" width="320"/><br/>
-      <sub>wydatki</sub>
+      <sub>Memo game</sub>
     </td>
     <td align="center">
       <img src="assets/screenshots/hangman.png" width="320"/><br/>
-      <sub>wydatki – lista</sub>
+      <sub>hangman</sub>
     </td>
     <td align="center">
       <img src="assets/screenshots/lose.png" width="320"/><br/>
-      <sub>ustawienia</sub>
+      <sub>przegrana</sub>
     </td>
   </tr>
 </table>
