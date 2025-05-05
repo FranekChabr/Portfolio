@@ -3,13 +3,12 @@ Aplikacja Budget app to narzędzie do śledzenia wydatków domowych z możliwoś
 
 ## Funkcje
 
-- 📊 Dashboard z przejrzystym podsumowaniem wydatków
-- 📅 Kalendarz wydatków miesięcznych
-- 💰 Limity budżetowe z możliwością ustawienia okresu (tydzień/miesiąc/rok)
-- 📋 Kategoryzacja wydatków dla lepszej organizacji
-- 🔍 Filtrowanie wydatków według kategorii i dat
-- 📧 Powiadomienia e-mail o przekroczeniu limitu budżetu
-- 📱 Responsywny interfejs działający na różnych urządzeniach
+-  Dashboard z przejrzystym podsumowaniem wydatków
+-  Kalendarz wydatków miesięcznych
+-  Limity budżetowe z możliwością ustawienia okresu (tydzień/miesiąc/rok)
+-  Kategoryzacja wydatków dla lepszej organizacji
+-  Filtrowanie wydatków według kategorii i dat
+-  Powiadomienia e-mail o przekroczeniu limitu budżetu
 
 ## Zrzuty ekranu działania aplikacji
 
