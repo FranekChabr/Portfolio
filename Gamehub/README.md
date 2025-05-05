@@ -22,6 +22,27 @@ Klasyczna gra słowna:
 - 5 błędnych liter powoduje przegraną.
 - Stopniowo odkrywana jest animowana postać wisielca.
 
+## Zrzuty ekranu działania aplikacji
+
+![home](assets/screenshots/home.png)
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/screenshots/memo.png" width="320"/><br/>
+      <sub>wydatki</sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/hangman.png" width="320"/><br/>
+      <sub>wydatki – lista</sub>
+    </td>
+    <td align="center">
+      <img src="assets/screenshots/lose.png" width="320"/><br/>
+      <sub>ustawienia</sub>
+    </td>
+  </tr>
+</table>
+
 ## 🔊 Dźwięki
 
 Obie gry posiadają efekty dźwiękowe znajdujące się w katalogu `assets/sounds/`. Dźwięki odtwarzane są przy:
