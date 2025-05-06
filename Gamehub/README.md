@@ -43,7 +43,7 @@ Klasyczna gra słowna:
   </tr>
 </table>
 
-## 🔊 Dźwięki
+## Dźwięki
 
 Obie gry posiadają efekty dźwiękowe znajdujące się w katalogu `assets/sounds/`. Dźwięki odtwarzane są przy:
 
@@ -51,7 +51,7 @@ Obie gry posiadają efekty dźwiękowe znajdujące się w katalogu `assets/sound
 - błędach,
 - wygranej i przegranej.
 
-## 📁 Struktura projektu
+## Struktura projektu
 
 - `home.html` – strona główna z wyborem gry  
 - `memo/` – folder z grą Memo Cards  
@@ -59,7 +59,7 @@ Obie gry posiadają efekty dźwiękowe znajdujące się w katalogu `assets/sound
 - `assets/` – obrazy i dźwięki wykorzystywane w grach  
 - `css/` – arkusze stylów CSS  
 
-## 🚀 Jak uruchomić?
+## Jak uruchomić?
 
 1. Sklonuj repozytorium:
 
