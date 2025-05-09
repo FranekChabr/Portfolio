@@ -2,9 +2,9 @@
 
 **Game Hub** to zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript. Projekt służy zarówno jako portfolio frontendowe, jak i przyjemna rozrywka online.
 
-## 🎮 Zawarte gry
+## Zawarte gry
 
-### 🧠 Memo Cards – Gra pamięciowa
+### Memo Cards – Gra pamięciowa
 
 Gra polega na odnajdywaniu par kart:
 
@@ -14,7 +14,7 @@ Gra polega na odnajdywaniu par kart:
 - Ostatnia plansza (8x8) nie ma limitu serduszek.
 - Po ukończeniu poziomu gra zaproponuje przejście na trudniejszy.
 
-### 🔤 Hangman – Wisielec
+### Hangman – Wisielec
 
 Klasyczna gra słowna:
 
