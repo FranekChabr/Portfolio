@@ -1,4 +1,4 @@
-# Moje Portfolio
+# Portfolio
 
 Witam w moim portfolio!  
 Znajdziesz tu wybrane projekty, które realizowałem w czasie nauki programowania. Każdy z nich rozwijał moje umiejętności w różnych obszarach – od tworzenia aplikacji webowych i gier przeglądarkowych po analizę danych. Zachęcam do sprawdzenia!
