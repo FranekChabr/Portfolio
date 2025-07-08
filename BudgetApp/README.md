@@ -1,4 +1,6 @@
 # Budget app 📈- Aplikacja do zarządzania wydatkami
+
+### Do przetestowania samemu: [BudgetApp](https://budgetapp-p2iq.onrender.com)
 Aplikacja Budget app to narzędzie do śledzenia wydatków domowych z możliwością ustawiania limitów budżetowych, kategoryzowania wydatków oraz przeglądu historii finansów z wykorzystaniem przejrzystego kalendarza.
 
 ## Funkcje
