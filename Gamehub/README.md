@@ -1,5 +1,7 @@
 # Game Hub 🎮 – Zbiór gier webowych
 
+### Do przetestowania samemu: [GameHub](https://franekchabr.github.io/Gamehub/index)
+
 **Game Hub** to zbiór dwóch klasycznych gier stworzonych w czystym HTML, CSS i JavaScript. Projekt służy zarówno jako portfolio frontendowe, jak i przyjemna rozrywka online.
 
 ## Zawarte gry
