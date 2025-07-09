@@ -66,8 +66,8 @@ def inject_current_year():
     return {'current_year': datetime.now().year}
 
 
-# 5) SMTP – dane do maili
-SMTP_USER = 'alert.mailowy@mail.com'
+# 5) SMTP – dane do maili # po stronie serwera
+SMTP_USER = 'mail'
 SMTP_PASS = 'haslo'
 SMTP_HOST = 'smtp.mail.com'
 SMTP_PORT = 587
