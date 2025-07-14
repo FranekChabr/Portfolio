@@ -16,16 +16,16 @@ Aplikacja Budget app to narzędzie do śledzenia wydatków domowych z możliwoś
 
 ## Zrzuty ekranu działania aplikacji
 
-![dashboard](screenshots/dashboard1.png)
+![dashboard](screenshots/dashboard_wykres_upadate.png)
 
 <table>
   <tr>
     <td align="center">
-      <img src="screenshots/expenses.png" width="320"/><br/>
+      <img src="screenshots/expenses_wykres.png" width="320"/><br/>
       <sub>wydatki</sub>
     </td>
     <td align="center">
-      <img src="screenshots/expenses2.png" width="320"/><br/>
+      <img src="screenshots/expenses_wykres_lista.png" width="320"/><br/>
       <sub>wydatki – lista</sub>
     </td>
     <td align="center">
