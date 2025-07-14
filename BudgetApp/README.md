@@ -63,8 +63,7 @@ Poniżej znajduje się krok po kroku instrukcja, jak uruchomić aplikację na sw
 ## Kroki instalacji
 1. Pobierz repozytorium
 ```
-git clone https://github.com/FranekChabr/Portfolio.git
-cd BudgetApp
+git clone https://github.com/FranekChabr/BudgetApp.git
 ```
 
 2. Utwórz wirtualne środowisko Python
